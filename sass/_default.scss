@@ -15,10 +15,12 @@ body {
   background-color: var(--bg-color);
   height: 100%;
   flex-direction: column;
+  width: 100%;
 
   background-image: url("../../images/bg-mobile-light.jpg");
   background-position: left top;
   background-repeat: no-repeat;
+  background-size: contain;
 }
 
 body.dark-theme {
