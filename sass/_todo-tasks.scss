@@ -43,13 +43,8 @@
 
     .delete-task {
       height: 0.9rem;
-      transition: transform 0.3s linear, background-color 0.3s ease-in;
       .check-img {
         height: 100%;
-      }
-
-      &:hover {
-        transform: rotate(90deg);
       }
     }
   }

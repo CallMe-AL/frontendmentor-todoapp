@@ -165,13 +165,9 @@ header .img-container {
 }
 .todo-tasks .todo-tasks-wrap .delete-task {
   height: 0.9rem;
-  transition: transform 0.3s linear, background-color 0.3s ease-in;
 }
 .todo-tasks .todo-tasks-wrap .delete-task .check-img {
   height: 100%;
-}
-.todo-tasks .todo-tasks-wrap .delete-task:hover {
-  transform: rotate(90deg);
 }
 .todo-tasks .todo-footer {
   width: 100%;
