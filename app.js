@@ -331,6 +331,7 @@ function dragover_handler(ev) {
   ev.preventDefault();
   ev.dataTransfer.dropEffect = "move";
 
+
   let y = ev.clientY;
 
   let afterElement = findAfterElement(todoTasks, y);

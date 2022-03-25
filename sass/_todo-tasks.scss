@@ -19,7 +19,6 @@
       border-bottom: 1px solid var(--very-light-font-color);
 
       &.dragging {
-        cursor: move;
         box-shadow: inset 0 0 10px var(--font-color);
       }
 
@@ -28,6 +27,10 @@
           text-decoration: line-through;
           color: var(--light-font-color);
         }
+      }
+
+      &:hover {
+        cursor: move;
       }
 
       .task {
@@ -40,8 +43,13 @@
 
     .delete-task {
       height: 0.9rem;
+      transition: transform 0.3s linear, background-color 0.3s ease-in;
       .check-img {
         height: 100%;
+      }
+
+      &:hover {
+        transform: rotate(90deg);
       }
     }
   }
