@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <!-- TODO FINISH META DESC -->
+  <meta name="description" description="">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <link rel="stylesheet" href="styles/css/main.css">
+  <title>Frontend Mentor | Todo app</title>
+</head>
+<body class="dark-theme flex">
+  <!-- alert modal for removing items -->
+  <div class="alert-wrap flex">
+    <div class="alert-box flex">
+      <p class="modal-message">Lorem ipsum dolor sit amet.</p>
+      <div class="button-wrap">
+        <button class="alert-btn delete-btn">Delete</button>
+        <button class="alert-btn cancel-btn">Cancel</button>
+      </div>
+    </div>
+  </div>
+  <!-- main todo wrap -->
+  <div class="todo-app-wrap flex">
+    <header class="flex">
+      <h1>TODO</h1>
+      <div class="img-container">
+        <img class="theme-img" src="images/icon-sun.svg" alt="sun icon" aria-label="toggle to light theme">
+      </div>      
+    </header>
+    <!-- create task -->
+    <div class="create-task flex">
+      <button class="add-btn circle" aria-label="Add task">
+        <img src="" alt="">
+      </button>
+      <form class="create-todo">
+        <label for="create-task" aria-label="Create a new todo...">
+          <input class="input-box" type="text" id="create-task" name="create-task" placeholder="Create a new todo...">
+        </label>
+      </form>
+    </div>
+    <!-- main tasks -->
+    <section class="todo-tasks flex">
+      <div class="todo-tasks-wrap">
+        <!-- todo task -->
+        <!-- <div data-id="1" class="todo-task flex">
+          <button class="task-btn circle" aria-label="Mark task as complete">
+            <img src="" alt="" class="check-img">
+          </button>
+          <p class="task">Jog around the park 3x.</p>
+          <button class="delete-task" aria-label="delete task" data-id="1">
+            <img src="images/icon-cross.svg" alt="cross icon" class="check-img">
+          </button>
+        </div> -->
+      </div>
+      <!-- todo footer -->
+      <div class="todo-footer flex">
+        <p><span class="items-left">0</span> items left</p>
+        <button class="clear-completed">Clear Completed</button>
+      </div>
+    </section>
+    <!-- sort todos -->
+    <section class="sort-todos flex">
+      <button class="sort-btn sort-all active">All</button>
+      <button class="sort-btn sort-active">Active</button>
+      <button class="sort-btn sort-completed">Completed</button>
+    </section>
+    <!-- drag and drop flair -->
+    <p class="drag-n-drop">Drag and drop to reorder list</p>
+    
+  </div>
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">Alex 👋</a>.
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

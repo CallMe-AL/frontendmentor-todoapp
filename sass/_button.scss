@@ -1,0 +1,34 @@
+@use "_config.scss";
+
+button {
+  border: none;
+  background-color: var(--task-bg-color);
+  cursor: pointer;
+  font-family: "Josefin Sans", sans-serif;
+
+  &.circle {
+    width: 25px;
+    aspect-ratio: 1;
+    border-radius: 50px;
+    border: 1px solid var(--light-font-color);
+    flex-shrink: 0;
+
+    margin-right: 10px;
+
+    justify-content: center;
+
+    &:hover {
+      border-color: config.$bright-blue;
+    }
+
+    &.checked {
+      background: config.$check-bg;
+    }
+  }
+}
+
+.delete-task {
+  .check-img {
+    pointer-events: none;
+  }
+}

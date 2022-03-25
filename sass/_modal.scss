@@ -1,0 +1,52 @@
+@use "_config.scss";
+
+.alert-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  min-height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  visibility: hidden;
+
+  &.visible {
+    visibility: visible;
+  }
+
+  .alert-box {
+    justify-content: center;
+    flex-direction: column;
+
+    background-color: var(--task-bg-color);
+    height: 20%;
+    padding: 20px;
+    border-radius: 8px;
+
+    .modal-message {
+      margin-top: auto;
+    }
+
+    .button-wrap {
+      margin-top: auto;
+
+      .alert-btn {
+        background-color: var(--very-light-font-color);
+        padding: 10px;
+        letter-spacing: 1px;
+        border-radius: 8px;
+        transition: all 0.3s ease-in;
+
+        &:first-child {
+          margin-right: 10px;
+        }
+
+        &:hover {
+          background-color: var(--light-font-color);
+          color: var(--bg-color);
+        }
+      }
+    }
+  }
+}

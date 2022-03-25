@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease-in, color 0.3s ease-in;
+}
+
+html {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 18px;
+  height: 100%;
+}
+
+body {
+  background-color: var(--bg-color);
+  height: 100%;
+  flex-direction: column;
+
+  background-image: url("../../images/bg-mobile-light.jpg");
+  background-position: left top;
+  background-repeat: no-repeat;
+}
+
+body.dark-theme {
+  background-image: url("../../images/bg-mobile-dark.jpg");
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.todo-app-wrap {
+  padding-top: 50px;
+  flex-direction: column;
+  width: 90%;
+  max-width: 700px;
+  justify-content: center;
+}

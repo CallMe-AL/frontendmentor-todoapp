@@ -1,0 +1,16 @@
+@use "_config.scss";
+
+.attribution {
+  margin-top: auto;
+  padding-bottom: 20px;
+  color: var(--light-font-color);
+
+  a {
+    text-decoration: none;
+    color: var(--font-color);
+
+    &:hover {
+      color: config.$bright-blue;
+    }
+  }
+}

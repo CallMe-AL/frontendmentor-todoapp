@@ -1,0 +1,13 @@
+@media screen and (min-width: 768px) {
+  body.light-theme {
+    background-image: url("../../images/bg-desktop-light.jpg");
+  }
+
+  body.dark-theme {
+    background-image: url("../../images/bg-desktop-dark.jpg");
+  }
+
+  header {
+    margin: 25px 0 50px 0;
+  }
+}
