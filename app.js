@@ -39,7 +39,7 @@ function createTask(item) {
 
   newTask.innerHTML = `
     <button class="task-btn circle ${item.completed && 'checked'} flex" aria-label="Mark task as complete" data-id="${item.id}">
-      <img src="${item.completed ? 'images/icon-check.svg' : ''}" alt="${item.completed ? 'check icon' : ''}" class="check-img">
+      <img src="images/icon-check.svg" alt="check icon ${item.completed ? '' : 'hidden'}" class="check-img ${item.completed ? '' : 'hidden'}">
     </button>
     <p class="task">${item.value}</p>
     <button class="delete-task" aria-label="delete task" data-id="${item.id}">
@@ -63,16 +63,16 @@ function createCheckEvent(container) {
     btn.addEventListener('click', () => {
       if (!btn.classList.contains('checked')) {
           btn.classList.add('checked');
-          btn.firstElementChild.src = 'images/icon-check.svg';
-          btn.firstElementChild.alt = 'check icon';
           btn.parentElement.classList.add('completed');
+          btn.firstElementChild.classList.remove('hidden');
+          btn.firstElementChild.alt = 'check icon';
           setCompleted(btn);
           setItemsLeft();
         } else {
           btn.classList.remove('checked');
-          btn.firstElementChild.src = '';
-          btn.firstElementChild.alt = '';
           btn.parentElement.classList.remove('completed');
+          btn.firstElementChild.classList.add('hidden');
+          btn.firstElementChild.alt = 'check icon (hidden)';
           setUncompleted(btn);
           setItemsLeft();
         }
@@ -127,8 +127,6 @@ function createDeleteEvent(container) {
 function inputReset() {
   inputBox.value = '';
   addBtn.classList.remove('checked');
-  addBtn.firstElementChild.src = '';
-  addBtn.firstElementChild.alt = '';
 }
 
 // items left
@@ -148,6 +146,9 @@ function setItemsLeft() {
 inputBox.addEventListener('keydown', (e) => {
   if (e.key === 'Enter') {
     e.preventDefault();
+    if (inputBox.value === '') {
+      return;
+    }
     let newItem = {
       value: inputBox.value,
       completed: false,
@@ -267,15 +268,20 @@ cancelDeletingBtn.addEventListener('click', () => {
 
 addBtn.addEventListener('click', () => {
   if (!addBtn.classList.contains('checked')) {
+    if (inputBox.value === '') {
+      return;
+    }
+    let newItem = {
+      value: inputBox.value,
+      completed: false,
+      id: todoArray.length + 1
+    }
+    todoArray.push(newItem);
     addBtn.classList.add('checked');
-    addBtn.firstElementChild.src = 'images/icon-check.svg';
-    addBtn.firstElementChild.alt = 'check icon';
-    createTask(inputBox.value);
+    createTask(newItem);
     inputReset();
   } else {
     addBtn.classList.remove('checked');
-    addBtn.firstElementChild.src = '';
-    addBtn.firstElementChild.alt = '';
   }
 });
 
@@ -322,7 +328,10 @@ todoTasks.addEventListener('dragover', dragover_handler);
 todoTasks.addEventListener('drop', drop_handler);
 
 function dragstart_handler(ev) {
-  ev.dataTransfer.setData('text/plain', ev.target.dataset.id);
+  // ***NOTE*** could instead use datatransfer and later drop data in drop handler
+  // lose dragover effect, but for more sensitive data would be a better option
+  // 
+  // ev.dataTransfer.setData('text/plain', ev.target.dataset.id);
   ev.target.classList.add('dragging');
   ev.dataTransfer.effectAllowed = "move";
 }
@@ -330,20 +339,25 @@ function dragstart_handler(ev) {
 function dragover_handler(ev) {
   ev.preventDefault();
   ev.dataTransfer.dropEffect = "move";
-
-
   let y = ev.clientY;
 
-  let afterElement = findAfterElement(todoTasks, y);
-  const currentElement = ev.dataTransfer.getData('text/plain');
+  // ***NOTE*** datatransfer does not work in most browsers in dragover
+  // websites could grab data when dragging something across the page
+  // not as important here since data are simple tasks, but important to keep in mind!!
+  // 
+  // const currentElement = ev.dataTransfer.getData('text/plain');
+
+  const currentElement = todoTasks.querySelector('.dragging');
+  const afterElement = findAfterElement(todoTasks, y);
 
   // if there's no after element, append dragging element to bottom of the container
   if (afterElement === null) {
     todoTasks.appendChild(currentElement);
   } else {
     // places dragging element before element most directly after it
-    todoTasks.insertBefore(todoTasks.querySelector(`[data-id="${currentElement}"]`), afterElement);
+    todoTasks.insertBefore(currentElement, afterElement);
   }
+  
 }
 
 // determine which element is most directly after the current mouse position
@@ -357,7 +371,6 @@ function findAfterElement(container, yPos) {
 
     // find offset between cursor and horizontal-center of the element
     const offset = yPos - element.top - element.height / 2;
-
     // the closer the element's offset is to 0, the closer it is to its center
     if (offset < 0 && offset > closest.offset) {
       // if the element's offset is closer than the original closest, it becomes the new closest element
@@ -370,7 +383,7 @@ function findAfterElement(container, yPos) {
 }
 
 function drop_handler(ev) {
-  ev.preventDefault();
+  ev.preventDefault(); 
 }
 
 window.addEventListener('load', () => {

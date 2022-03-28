@@ -25,11 +25,12 @@ button {
     &.checked {
       background: config.$check-bg;
     }
-  }
-}
 
-.delete-task {
-  .check-img {
-    pointer-events: none;
+    .check-img {
+      display: block;
+      &.hidden {
+        display: none;
+      }
+    }
   }
 }

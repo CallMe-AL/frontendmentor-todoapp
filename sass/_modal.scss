@@ -9,20 +9,24 @@
   width: 100%;
   background-color: rgba(0, 0, 0, 0.8);
   justify-content: center;
-  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
 
   &.visible {
-    visibility: visible;
+    opacity: 1;
+    pointer-events: all;
   }
 
   .alert-box {
     justify-content: center;
     flex-direction: column;
+    color: var(--font-color);
 
-    background-color: var(--task-bg-color);
+    background-color: var(--very-light-font-color);
     height: 20%;
     padding: 20px;
     border-radius: 8px;
+    min-height: 200px;
 
     .modal-message {
       margin-top: auto;
@@ -37,6 +41,10 @@
         letter-spacing: 1px;
         border-radius: 8px;
         transition: all 0.3s ease-in;
+        color: var(--font-color);
+        box-shadow: 0px 0px 1px var(--font-color);
+
+        border: 1px solid var(--font-color);
 
         &:first-child {
           margin-right: 10px;

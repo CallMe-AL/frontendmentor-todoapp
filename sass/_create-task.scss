@@ -1,8 +1,16 @@
+@use "_config.scss";
+
 .create-task {
   background-color: var(--task-bg-color);
   width: 100%;
   padding: 15px 20px;
   border-radius: 8px;
+
+  .add-btn {
+    &:active {
+      background-color: config.$bright-blue;
+    }
+  }
 
   .create-todo {
     width: 85%;
