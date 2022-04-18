@@ -1,18 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
 .light-theme {
-  --bg-color: #e4e5f1;
-  --task-bg-color: #fafafa;
-  --font-color: #484b6a;
-  --light-font-color: #9394a5;
-  --very-light-font-color: #d2d3db;
+  --bg-color: hsl(236deg, 33%, 92%);
+  --task-bg-color: hsl(0deg, 0%, 98%);
+  --font-color: hsl(235deg, 19%, 35%);
+  --light-font-color: hsl(236deg, 9%, 61%);
+  --very-light-font-color: hsl(233deg, 11%, 84%);
 }
 
 .dark-theme {
-  --bg-color: #161722;
-  --task-bg-color: #25273c;
-  --font-color: #cacde8;
-  --light-font-color: #777a92;
-  --very-light-font-color: #393a4c;
+  --bg-color: hsl(235deg, 21%, 11%);
+  --task-bg-color: hsl(235deg, 24%, 19%);
+  --font-color: hsl(234deg, 39%, 85%);
+  --light-font-color: hsl(234deg, 11%, 52%);
+  --very-light-font-color: hsl(237deg, 14%, 26%);
 }
 
 * {
@@ -54,6 +54,9 @@ body.dark-theme {
   width: 90%;
   max-width: 700px;
   justify-content: center;
+}
+.todo-app-wrap .main-content-wrap {
+  width: 100%;
 }
 
 .alert-wrap {
@@ -126,7 +129,7 @@ header .img-container {
   border-radius: 8px;
 }
 .create-task .add-btn:active {
-  background-color: #3a7bfd;
+  background-color: hsl(220deg, 98%, 61%);
 }
 .create-task .create-todo {
   width: 85%;
@@ -208,7 +211,7 @@ header .img-container {
   color: var(--light-font-color);
 }
 .sort-todos button.active {
-  color: #3a7bfd;
+  color: hsl(220deg, 98%, 61%);
 }
 
 .drag-n-drop {
@@ -227,7 +230,7 @@ header .img-container {
   color: var(--font-color);
 }
 .attribution a:hover {
-  color: #3a7bfd;
+  color: hsl(220deg, 98%, 61%);
 }
 
 button {
@@ -247,10 +250,10 @@ button.circle {
   transition: border-color 0.3s ease-in, background-color 0.3s ease-in;
 }
 button.circle:hover {
-  border-color: #3a7bfd;
+  border-color: hsl(220deg, 98%, 61%);
 }
 button.circle.checked {
-  background: linear-gradient(130deg, #57ddff, #c058f3);
+  background: linear-gradient(130deg, hsl(192deg, 100%, 67%), hsl(280deg, 87%, 65%));
 }
 button.circle .check-img {
   display: block;
