@@ -143,23 +143,6 @@ function setItemsLeft() {
   itemsLeft.textContent = remaining;
 }
 
-inputBox.addEventListener('keydown', (e) => {
-  if (e.key === 'Enter') {
-    e.preventDefault();
-    if (inputBox.value === '') {
-      return;
-    }
-    let newItem = {
-      value: inputBox.value,
-      completed: false,
-      id: todoArray.length + 1
-    }
-    todoArray.push(newItem);
-    createTask(newItem);
-    inputBox.value = '';
-  }
-});
-
 // *** sorting buttons logic ***
 function removeActive() {
   sortBtns.forEach(btn => {
@@ -268,7 +251,7 @@ cancelDeletingBtn.addEventListener('click', () => {
 
 addBtn.addEventListener('click', () => {
   if (!addBtn.classList.contains('checked')) {
-    if (inputBox.value === '') {
+    if (inputBox.value.trim() === '') {
       return;
     }
     let newItem = {
@@ -282,6 +265,23 @@ addBtn.addEventListener('click', () => {
     inputReset();
   } else {
     addBtn.classList.remove('checked');
+  }
+});
+
+inputBox.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    if (inputBox.value.trim() === '') {
+      return;
+    }
+    let newItem = {
+      value: inputBox.value,
+      completed: false,
+      id: todoArray.length + 1
+    }
+    todoArray.push(newItem);
+    createTask(newItem);
+    inputBox.value = '';
   }
 });
 
